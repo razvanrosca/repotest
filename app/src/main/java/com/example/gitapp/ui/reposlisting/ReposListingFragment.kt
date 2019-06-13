@@ -50,7 +50,9 @@ class ReposListingFragment : Fragment(), ReposListingView {
 
 
     override fun showReposList(repos: List<Repo>) {
-        initRecyclerView(repos)
+        val sortedListByName = repos.sortedWith(compareBy { it.fullName })
+        initRecyclerView(sortedListByName)
+
     }
 
     override fun showError() {
